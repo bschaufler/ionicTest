@@ -1,32 +1,22 @@
-This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
+# Sociogram for AngularJS / Ionic #
 
-## How to use this template
+A sample application that demonstrates a lightweight approach to integrate with Facebook in your AngularJS / Ionic apps.
 
-*This template does not work on its own*. It is missing the Ionic library, and AngularJS.
 
-To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
+## Getting Started ##
 
-### With the Ionic tool:
+1. Create an Ionic project
 
-Take the name after `ionic-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+2. Add the inappbrowser plugin to your project
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myApp sidemenu
-```
+   cordova plugins add org.apache.cordova.inappbrowser
 
-Then, to run it, cd into `myApp` and run:
+3. Replace the www folder of the Ionic project with the www folder in this repository
 
-```bash
-$ ionic platform add ios
-$ ionic build ios
-$ ionic emulate ios
-```
+4. Create a Facebook app here: https://developers.facebook.com/apps. In the advanced settings, make sure you declare a “Valid OAuth redirect URI”. For example, if during development you access your application from http://localhost/openfb/index.html, you must declare http://localhost/openfb/oauthcallback.html as a valid redirect URI. Also add https://www.facebook.com/connect/login_success.html as a Valid OAuth redirect URI for access from Cordova.
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+5. Copy the Facebook App Id and paste it as the first argument of the OpenFB.init() method invocation in the run() function in app.js.
 
-## Demo
-http://plnkr.co/edit/0RXSDB?p=preview
+6. To run the app in the browser: Load index.html, from a location that matches the redirect URI you defined above. For example: http://localhost/openfb/index.html
 
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
+7. To run the app in Cordova: Build the Ionic project and run it as a Cordova app on your device
